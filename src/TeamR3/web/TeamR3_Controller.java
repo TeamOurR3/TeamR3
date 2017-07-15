@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
+
 import TeamR3.entity.MyJsonObject;
 import TeamR3.entity.User;
 import TeamR3.service.UserService;
@@ -44,8 +46,9 @@ public class TeamR3_Controller {
 	
 	@RequestMapping(value="/login2.TeamR3",method=RequestMethod.POST)
 	public @ResponseBody MyJsonObject getuser2(@RequestParam(value="account") String account,@RequestParam(value="password") String password ){
-
-       return new MyJsonObject(200, "成功注册", null);
+            User user=new User();
+            
+       return new MyJsonObject(200, "test");
 		
 	}
 }
