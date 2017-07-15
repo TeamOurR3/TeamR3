@@ -9,12 +9,15 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
     <!-- 扫描包中的注解并自动进行工厂模式 -->
-	<context:component-scan base-package="xyz.dzp6" />
+	<context:component-scan base-package="TeamR3" />
+	
+	
 	
 	<!-- 配置一个视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/page/"></property>
 		<property name="suffix" value=".html"></property>
 	</bean>
+
 
 </beans>

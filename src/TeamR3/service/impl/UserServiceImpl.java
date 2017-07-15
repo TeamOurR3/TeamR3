@@ -1,28 +1,18 @@
 package TeamR3.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import TeamR3.dao.UserDao;
 import TeamR3.entity.User;
 import TeamR3.mapper.UserMapper;
 import TeamR3.service.UserService;
-
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
+	@Autowired
 	private UserDao userDao = null;
-	
-	public UserServiceImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public UserServiceImpl(UserDao userDao) {
-		super();
-		this.userDao = userDao;
-	}
-
-	public UserDao getUserDao() {
-		return userDao;
-	}
-
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}

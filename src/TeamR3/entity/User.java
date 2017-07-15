@@ -2,7 +2,7 @@ package TeamR3.entity;
 
 public class User {
 
-	private int user_id;
+	private String user_id;
 	private String user_name;
 	private String user_password;
 	private int user_right;
@@ -19,10 +19,10 @@ public class User {
 	public void setUser_password(String user_password) {
 		this.user_password = user_password;
 	}
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 	public int getUser_right() {
@@ -38,7 +38,7 @@ public class User {
 		this.user_job = user_job;
 	}
 	
-	public User(int user_id, String user_name, String user_password,
+	public User(String user_id, String user_name, String user_password,
 			int user_right, String user_job) {
 		super();
 		this.user_id = user_id;
@@ -46,6 +46,12 @@ public class User {
 		this.user_password = user_password;
 		this.user_right = user_right;
 		this.user_job = user_job;
+	}
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", user_name=" + user_name
+				+ ", user_password=" + user_password + ", user_right="
+				+ user_right + ", user_job=" + user_job + "]";
 	}
 	public User() {
 		super();

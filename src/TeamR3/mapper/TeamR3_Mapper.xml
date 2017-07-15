@@ -4,8 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TeamR3.mapper.TeamR3_Mapper">
 
-<select id = "getuser" paramaterType = "TeamR3.entity.User" resultType = "TeamR3.entity.User">
-select * from user where user_name = #{user_name} and user_password = #{user_password}
+<select id = "getuser" parameterType = "TeamR3.entity.User" resultType = "TeamR3.entity.User">
+select * from user where user_id = #{user_id} and user_password = #{user_password}
 </select>
 
 </mapper>
