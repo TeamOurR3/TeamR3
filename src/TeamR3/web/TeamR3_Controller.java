@@ -5,13 +5,18 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
+
+import TeamR3.entity.MyJsonObject;
 import TeamR3.entity.User;
 import TeamR3.service.UserService;
 
 @Controller
+@RequestMapping("/test")
 public class TeamR3_Controller {
 	@Autowired
 	private UserService userService = null;
@@ -20,8 +25,9 @@ public class TeamR3_Controller {
 		this.userService = userService;
 	}
 
+	
 	@RequestMapping("/login.TeamR3")
-	public @ResponseBody int getuser(
+	public @ResponseBody User getuser(
 			@RequestParam(value = "user_id")String id,
 			@RequestParam(value = "user_password")String password){
 		User user = new User();
@@ -30,11 +36,19 @@ public class TeamR3_Controller {
 		User resultUser = userService.getuser(user);
 		if(resultUser!=null){
 			System.out.println(resultUser);
-			return resultUser.getUser_right();
+			return resultUser;
 		}else{
 			System.out.println("匹配失败");
-			return 0;
+			return resultUser;
 		}
+		
+	}
+	
+	@RequestMapping(value="/login2.TeamR3",method=RequestMethod.POST)
+	public @ResponseBody MyJsonObject getuser2(@RequestParam(value="account") String account,@RequestParam(value="password") String password ){
+            User user=new User();
+            
+       return new MyJsonObject(200, "test");
 		
 	}
 }
