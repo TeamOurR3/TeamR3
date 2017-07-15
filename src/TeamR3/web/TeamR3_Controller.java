@@ -20,8 +20,9 @@ public class TeamR3_Controller {
 		this.userService = userService;
 	}
 
+	
 	@RequestMapping("/login.TeamR3")
-	public @ResponseBody int getuser(
+	public @ResponseBody User getuser(
 			@RequestParam(value = "user_id")String id,
 			@RequestParam(value = "user_password")String password){
 		User user = new User();
@@ -30,11 +31,20 @@ public class TeamR3_Controller {
 		User resultUser = userService.getuser(user);
 		if(resultUser!=null){
 			System.out.println(resultUser);
-			return resultUser.getUser_right();
+			return resultUser;
 		}else{
 			System.out.println("匹配失败");
-			return 0;
+			return resultUser;
 		}
+		
+	}
+	
+	@RequestMapping("/login2.TeamR3")
+	public @ResponseBody User getuser(){
+		User user = new User();
+		user.setUser_id("11");
+		user.setUser_password("111");
+       return user;
 		
 	}
 }
