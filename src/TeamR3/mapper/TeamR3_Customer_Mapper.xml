@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TeamR3.mapper.TeamR3_Customer_Mapper">
+
+
+
+<select id="getCustomerByCondition" parameterType="TeamR3.entity.Customer" resultType="TeamR3.entity.Customer">
+select * from customer 
+<where>
+<if test="customer_id != null and customer_id != ''">
+customer_id = #{customer_id}
+</if>
+<if test="customer_name != null and customer_name != ''">
+customer_name = #{customer_name}
+</if>
+</where>
+</select>
+
+<select id="seleteCustomer" parameterType="int" resultType="int">
+select count(customer_id) from customer where customer_id = #{customer_id}
+</select>
+
+
+<insert id="addCustomer" parameterType="TeamR3.entity.Customer">
+insert into customer(customer_id,customer_name,customer_sex,customer_tel,customer_point,customer_level,customer_identity) 
+value(#{customer_id},#{customer_name},#{customer_sex},#{customer_tel},#{customer_point},#{customer_level},#{customer_identity})
+</insert>
+
+<delete id="deleteCustomer" parameterType="int">
+delete from customer where customer_id = #{customer_id}
+</delete>
+
+
+<update id="updateCustomer" parameterType="TeamR3.entity.Customer">
+update customer
+<set>
+<if test="customer_name != null and customer_name != ''">
+customer_name = #{customer_name},
+</if>
+<if test="customer_sex != null and customer_sex != ''">
+customer_sex = #{customer_sex},
+</if>
+<if test="customer_tel != null and customer_tel != ''">
+customer_tel = #{customer_tel},
+</if>
+<if test="customer_point != null and customer_point != ''">
+customer_point = #{customer_point},
+</if>
+<if test="customer_level != null and customer_level != ''">
+customer_level = #{customer_level},
+</if>
+<if test="customer_identity != null and customer_identity != ''">
+customer_identity = #{customer_identity}
+</if>
+</set>
+where customer_id = #{customer_id}
+</update>
+
+</mapper>
+
