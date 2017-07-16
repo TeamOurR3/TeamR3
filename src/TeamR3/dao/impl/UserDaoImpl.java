@@ -24,4 +24,26 @@ public class UserDaoImpl implements UserDao {
 	public User getuser(User user) {
 		return sst.selectOne("getuser", user);
 	}
+
+
+	@Override
+	public int adduser(User user) {
+		// TODO Auto-generated method stub
+		return sst.insert("adduser", user);
+	}
+
+
+	@Override
+	public int modifyuser(String user_id, User newuser) {
+		// TODO Auto-generated method stub
+		return sst.update("modifyuser", newuser);
+	}
+
+
+
+	@Override
+	public int deluser(String user_id) {
+		// TODO Auto-generated method stub
+		return sst.delete("deluser", user_id);
+	}
 }
