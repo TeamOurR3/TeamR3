@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TeamR3.mapper.TeamR3_Room_type_Mapper">
+
+
+<select id="getAllRoom_type" resultType="TeamR3.entity.Room_type">
+select * from room_type
+</select>
+
+<select id="selectRoom_type_id" parameterType="int" resultType="int">
+select count(room_type_id) from room_type where room_type_id = #{room_type_id}
+</select>
+
+
+<insert id="addRoom_type" parameterType="TeamR3.entity.Room_type">
+insert into room_type(room_type_id,room_type_info,room_type_limit_number,room_standard_price,room_discount_price,room_normal_customer_price,room_vip_customer_price) 
+value(#{room_type_id},#{room_type_info},#{room_type_limit_number},#{room_standard_price},#{room_discount_price},#{room_normal_customer_price},#{room_vip_customer_price})
+</insert>
+
+<delete id="delectRoom_type" parameterType="int">
+delete from room_type where room_type_id = #{room_type_id}
+</delete>
+
+
+<update id="updateRoom_type" parameterType="TeamR3.entity.Room_type">
+update room_type
+<set>
+<if test="room_type_info != null and room_type_info != ''">
+room_type_info = #{room_type_info},
+</if>
+<if test="room_type_limit_number != null and room_type_limit_number != ''">
+room_type_limit_number = #{room_type_limit_number},
+</if>
+<if test="room_standard_price != null and room_standard_price != ''">
+room_standard_price = #{room_standard_price},
+</if>
+<if test="room_discount_price != null and room_discount_price != ''">
+room_discount_price = #{room_discount_price},
+</if>
+<if test="room_normal_customer_price != null and room_normal_customer_price != ''">
+room_normal_customer_price = #{room_normal_customer_price},
+</if>
+<if test="room_vip_customer_price != null and room_vip_customer_price != ''">
+room_vip_customer_price = #{room_vip_customer_price}
+</if>
+</set>
+where room_type_id = #{room_type_id}
+</update>
+
+</mapper>
+

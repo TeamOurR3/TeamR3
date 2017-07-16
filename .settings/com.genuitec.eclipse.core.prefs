@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/WEB-INF/html/index.html,WebRoot/assets/jquery.textillate.js,WebRoot/plugins/layer/mobile/layer.js
+validator.Unchecked=
