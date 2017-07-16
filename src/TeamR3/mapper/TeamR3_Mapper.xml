@@ -1,12 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+PUBLIC "-//mybatis.org//DTD 
+
+ Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd 
+">
 <mapper namespace="TeamR3.mapper.TeamR3_Mapper">
 
+<!-- 定义1个列和实体类的映射关系 -->
+	<resultMap id="floorsResultMap" type="TeamR3.entity.Floors">
+		<!-- 主键列的映射关系 -->
+		<id column="floor_id" property="floor_id" />
+		<!-- 除了主键之外的列都用result -->
+		<result column="floor_comments" property="floor_comments" />
+		<result column="floor_room_number" property="floor_room_number" />
+		<result column="floor_customer_number" property="floor_customer_number" />
+	</resultMap>
 <select id = "getuser" parameterType = "TeamR3.entity.User" resultType = "TeamR3.entity.User">
 select * from user where user_id = #{user_id} and user_password = #{user_password}
 </select>
+<!-- 添加用户 -->
+<insert id="adduser" parameterType="TeamR3.entity.User" >
+	insert into
+	user(user_id,user_name,user_password,user_right,user_job) 
+	values(#{user_id},#{user_name},#{user_password},#{user_right},#{user_job})
+</insert>
+<!-- 修改用户 -->
+<update id="modifyuser" parameterType="TeamR3.entity.User">
+	update user set
+	user_name=#{user_name},user_password=#{user_password},user_right=#{user_right},
+	user_job=#{user_job} where user_id=#{user_id}
+</update>
+<!-- 删除用户 -->
+<delete id="deluser" parameterType="int">
+	delete from user where
+	user_id=#{user_id}
+</delete>
 
+<<<<<<< HEAD
+<!-- 增加楼层信息 -->
+<insert id="addFloosMessage" parameterType="TeamR3.entity.Floors" >
+	insert into
+	floors 
+	values(#{floor_id},#{floor_comments},#{floor_room_number},#{floor_customer_number})
+</insert>
+
+<!-- 删除楼层信息 -->
+<delete id="deleteFloorsMessage" parameterType="int">
+	delete from floors where
+	floor_id=#{floor_id}
+</delete>
+
+<!-- 查询楼层信息 -->
+<select id="queryFloorsmessage" resultMap = "floorsResultMap">
+	select * from floors
+</select>
+
+<!-- 修改楼层信息 -->
+<select id="modifyFloorMessage"  parameterType="TeamR3.entity.Floors">
+	select * from floors
+</select>
+=======
+<!-- 查询所有商品类别信息 -->
+<select id="querygoodtype" resultType = "TeamR3.entity.GoodType">
+	select * from good_type
+</select>
+
+<!-- 增加商品类别 -->
+<insert id="addgoodtype" parameterType="TeamR3.entity.GoodType">
+	insert into good_type 
+	values(#{good_type_id},#{good_type_info})
+</insert>
+
+<!-- 修改商品类别 -->
+<update id="modifygoodtype" parameterType="TeamR3.entity.GoodType">
+	update good_type set
+	good_type_info=#{good_type_info} 
+	where good_type_id=#{good_type_id}
+</update>
+
+<!-- 删除商品类别 -->
+<delete id="delgoodtype" parameterType="int">
+	delete from good_type where
+	good_type_id=#{good_type_id}
+</delete>
+>>>>>>> 6dc3dce26db2f7f927a075e794f871f2f4df1355
 </mapper>
 
