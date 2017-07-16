@@ -1,5 +1,7 @@
 package TeamR3.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,27 +17,35 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
+
 	@Override
-	public User getuser(User user) {
-		return userDao.getuser(user);
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return userDao.getAllUser();
 	}
 
 	@Override
-	public int adduser(User user) {
+	public User getUser(User user) {
 		// TODO Auto-generated method stub
-		return userDao.adduser(user);
+		return userDao.getUser(user);
 	}
 
 	@Override
-	public int modifyuser(String user_id, User newuser) {
+	public int addUser(User user) {
 		// TODO Auto-generated method stub
-		return userDao.modifyuser(user_id, newuser);
+		return userDao.addUser(user);
 	}
 
 	@Override
-	public int deluser(String user_id) {
+	public int modifyUser(User newUser) {
 		// TODO Auto-generated method stub
-		return userDao.deluser(user_id);
+		return userDao.modifyUser(newUser);
+	}
+
+	@Override
+	public int delUser(String user_id) {
+		// TODO Auto-generated method stub
+		return userDao.delUser(user_id);
 	}
 
 }

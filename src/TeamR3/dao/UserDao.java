@@ -2,14 +2,18 @@ package TeamR3.dao;
 
 
 
+import java.util.List;
+
 import TeamR3.entity.User;
 
 public interface UserDao {
-	public User getuser(User user);
+	public List<User> getAllUser();
 	
-	public int adduser(User user);
+	public User getUser(User user);
 	
-	public int modifyuser(String user_id, User newuser);
+	public int addUser(User user);
 	
-	public int deluser(String user_id);
+	public int modifyUser(User newUser);
+	
+	public int delUser(String user_id);
 }

@@ -1,5 +1,7 @@
 package TeamR3.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,29 +22,37 @@ public class UserDaoImpl implements UserDao {
 
 	
 	@Override
-	public User getuser(User user) {
+	public User getUser(User user) {
 		return sst.selectOne("getuser", user);
 	}
 
 
 	@Override
-	public int adduser(User user) {
+	public int addUser(User user) {
 		// TODO Auto-generated method stub
 		return sst.insert("adduser", user);
 	}
 
 
 	@Override
-	public int modifyuser(String user_id, User newuser) {
+	public int modifyUser(User newUser) {
 		// TODO Auto-generated method stub
-		return sst.update("modifyuser", newuser);
+		return sst.update("modifyuser", newUser);
 	}
 
 
 
 	@Override
-	public int deluser(String user_id) {
+	public int delUser(String user_id) {
 		// TODO Auto-generated method stub
 		return sst.delete("deluser", user_id);
 	}
+
+
+	@Override
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return sst.selectList("getalluser");
+	}
+
 }
