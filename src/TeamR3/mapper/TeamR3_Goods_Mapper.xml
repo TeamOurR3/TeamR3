@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TeamR3.mapper.TeamR3_Goods_Mapper">
+
+	<select id="queryGoods" resultType="TeamR3.entity.Goods">
+	      select * from goods
+	</select>
+	
+	<insert id="addGoods" parameterType="TeamR3.entity.Goods">
+	      insert into goods values
+	      (#{goods_id},#{goods_name},#{goods_price},#{good_type_id},#{good_unit})
+	</insert>
+	
+	<update id="modifyGoods" parameterType="TeamR3.entity.Goods">
+	      update goods
+	      <trim prefix="set" suffixOverrides=",">
+	      <if test="goods_name != null and goods_name != ''" >goods_name = #{goods_name}</if>
+	      <if test="goods_price != 0">goods_price = #{goods_price}</if>
+	      <if test="goods_type_id != 0">goods_type_id = #{goods_type_id}</if>
+	      <if test="goods_unit != null and goods_unit != ''">goods_unit = #{goods_unit}</if>
+	      </trim>
+	</update>
+	
+	<delete id="delGoods">
+	       delete from goods
+	       where goods_id = #{goods_id}
+	</delete>
+
+</mapper>
+

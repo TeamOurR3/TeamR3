@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import TeamR3.dao.UserDao;
 import TeamR3.entity.User;
-import TeamR3.mapper.UserMapper;
 
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
