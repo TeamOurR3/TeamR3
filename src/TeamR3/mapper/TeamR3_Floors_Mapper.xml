@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TeamR3.mapper.TeamR3_Floors_Mapper">
+	<!-- 定义1个列和实体类的映射关系 -->
+	<resultMap id="floorsResultMap" type="TeamR3.entity.Floors">
+		<!-- 主键列的映射关系 -->
+		<id column="floor_id" property="floor_id" />
+		<!-- 除了主键之外的列都用result -->
+		<result column="floor_comments" property="floor_comments" />
+		<result column="floor_room_number" property="floor_room_number" />
+		<result column="floor_customer_number" property="floor_customer_number" />
+	</resultMap>
+
+
+	<!-- 增加楼层信息 -->
+	<insert id="addFloosMessage" parameterType="TeamR3.entity.Floors">
+		insert into
+		floors
+		values(#{floor_id},#{floor_comments},#{floor_room_number},#{floor_customer_number})
+	</insert>
+
+	<!-- 删除楼层信息 -->
+	<delete id="deleteFloorsMessage" parameterType="int">
+		delete from floors where
+		floor_id=#{floor_id}
+	</delete>
+
+	<!-- 查询楼层信息 -->
+	<select id="queryFloorsmessage" resultMap="floorsResultMap">
+		select * from floors
+	</select>
+
+	<!-- 修改楼层信息 -->
+	<select id="modifyFloorMessage" parameterType="TeamR3.entity.Floors">
+		select * from floors
+	</select>
+</mapper>
+

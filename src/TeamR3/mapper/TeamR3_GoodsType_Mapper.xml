@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TeamR3.mapper.TeamR3_GoodsType_Mapper">
+	<!-- 查询所有商品类别信息 -->
+	<select id="queryGoodsType" resultType="TeamR3.entity.GoodsType">
+		select * from goods_type
+	</select>
+
+	<!-- 增加商品类别 -->
+	<insert id="addGoodsType" parameterType="TeamR3.entity.GoodsType">
+		insert into goods_type
+		values(#{goods_type_id},#{goods_type_info})
+	</insert>
+
+	<!-- 修改商品类别 -->
+	<update id="modifyGoodsType" parameterType="TeamR3.entity.GoodsType">
+		update goods_type set
+		goods_type_info=#{goods_type_info}
+		where goods_type_id=#{goods_type_id}
+	</update>
+
+	<!-- 删除商品类别 -->
+	<delete id="delGoodsType" parameterType="int">
+		delete from goods_type where
+		goods_type_id=#{goods_type_id}
+	</delete>
+</mapper>
+
