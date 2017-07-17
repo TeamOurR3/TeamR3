@@ -32,4 +32,9 @@ public class GoodsServiceImpl implements GoodsService{
 	public int delGoods(int goods_id) {
 		return goodsDao.delGoods(goods_id);
 	}
+	@Override
+	public double queryBygoods_name(String goods_name) {
+		return goodsDao.queryBygoods_name(goods_name);
+		
+	}
 }

@@ -9,4 +9,5 @@ public interface GoodsDao {
 	public abstract int addGoods(Goods goods);
 	public abstract int modifyGoods(Goods goods);
 	public abstract int delGoods(int goods_id);
+	public double queryBygoods_name(String goods_name);
 }

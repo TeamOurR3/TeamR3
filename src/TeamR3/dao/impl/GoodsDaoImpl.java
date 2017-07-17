@@ -32,4 +32,9 @@ public class GoodsDaoImpl implements GoodsDao{
 	public int delGoods(int goods_id) {
 		return sqlSessionTemplate.delete("delGoods", goods_id);
 	}
+	@Override
+	public double queryBygoods_name(String goods_name) {
+	return sqlSessionTemplate.selectOne("queryBygoods_name", goods_name);
+
+	}
 }
