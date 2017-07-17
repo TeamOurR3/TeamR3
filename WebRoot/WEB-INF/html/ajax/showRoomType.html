@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../css/roomType.css">
+	<style type="text/css">
+		.searchResult{
+			margin-bottom: 40px;
+		}	
+		th{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="form-wrapper">
+		<div class="page-header searchResult">
+		  <h1>显示客房类型</h1>
+		</div>
+	    <section class="content">
+	        <table id="example4" class="table table-bordered table-hover dataTable" aria-describedby="example4_info" style="background-color: #fff">
+	            <thead>
+	                <tr>
+	                    <th rowspan="1" colspan="1">客房类型ID</th>
+	                    <th rowspan="1" colspan="1">客房类型</th>
+	                    <th rowspan="1" colspan="1">额定人数</th>
+	                    <th rowspan="1" colspan="1">操作</th>
+	                </tr>
+	            </thead>    
+	            <tbody role="alert" aria-live="polite" aria-relevant="all" id="orderList">
+	                   <tr class="odd">
+	                       <td class="  sorting_1">1</td>
+	                       <td class=" ">双人房</td>
+	                       <td class=" ">2人</td>
+	                       <td><button class="btn btn-danger btn-sm turn_to_buy">删除</button></td>
+	                   </tr>
+	                    <tr class="odd">
+	                       <td class="  sorting_1">2</td>
+	                       <td class=" ">单人房</td>
+	                       <td class=" ">1人</td>
+	                       <td><button class="btn btn-danger btn-sm turn_to_buy">删除</button></td>
+	                   </tr>
+	            </tbody>
+	        </table>
+	    </section>
+	</div>
+</body>
+</html>
